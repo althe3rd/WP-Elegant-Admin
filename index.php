@@ -11,6 +11,7 @@ Author URI: http://alnemec.com
 
 function my_admin_theme_style() {
     wp_enqueue_style('my-admin-theme', plugins_url('wp-admin-master.css', __FILE__));
+    
     wp_enqueue_script(
 		'my-admin-theme-actions',
 		plugins_url( 'js/wp-clean-admin-master.min.js' , __FILE__ ),

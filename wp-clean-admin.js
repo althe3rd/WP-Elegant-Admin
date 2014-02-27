@@ -1,5 +1,58 @@
 jQuery(document).ready(function($) {
 
+var isHome = false;
+
+  	 var siteurli = $("#wp-admin-bar-site-name a").attr("href") + "wp-admin/";
+  	 var currentURL = document.URL;
+  	
+ if(currentURL == siteurli || currentURL == siteurli+"index.php") {
+		isHome = true;
+
+	}
+
+  
+ $("#wp-admin-bar-root-default").prepend("<li id='wp-admin-bar-wp-menu'><a href='#' class='ab-item sideNavMenuToggle'><span class='ab-icon'></span> Menu</a></li>");
+ //$(".auto-fold #adminmenuback, .auto-fold #adminmenuwrap").addClass("menuHide");
+ 
+ var randNum = Math.floor((Math.random()*3)+1);
+ 
+ if(isHome) {
+ $("body").prepend("<div class='greeting show'><div class='inner'>Hello</div></div>");
+ }
+ 
+ if(randNum == 1) {
+	 $(".greeting .inner").text("Hello");
+ }
+ 
+ if(randNum == 2) {
+	 $(".greeting .inner").text("Hi There");
+ }
+ 
+ if(randNum == 2) {
+	 $(".greeting .inner").text("Whats Up?");
+ }
+ 
+ setTimeout(function() {
+	 
+ 
+ $(".greeting").removeClass("show");
+ },2000);
+ 
+ $(".postbox").addClass("anim");
+ 
+ setTimeout(function() {
+	$(".postbox").removeClass("anim");	 
+	$(".postbox").css("opacity","1");
+ },5000)
+ 
+ 
+ $(".sideNavMenuToggle").click(function(e) {
+  	e.preventDefault();
+  	
+  	$(".auto-fold #adminmenuback, .auto-fold #adminmenuwrap").toggleClass("menuShown");
+  	//$(".auto-fold #adminmenuback, .auto-fold #adminmenuwrap").toggleClass("menuHide");
+  	
+  });
 
  function setGetParameter(url, paramName, paramValue)
 {
@@ -37,12 +90,6 @@ var currentURL = document.URL;
 
 /*$("#adminmenuwrap").fadeIn(300);*/
 
-$('#adminmenuwrap').animate({
-    opacity: 1
-   
-  }, 400, function() {
-    
-  });
 
 $('#wpbody').animate({
     opacity: 1   
@@ -119,15 +166,15 @@ $( "#wpbody a" ).each(function( index ) {
 
  
  if(analytics) {
- $("#wpwrap").prepend('<div class="newGlobalMenu"><nav class="cleanNav"><a href="#" class="dashboardButton active">Dashboard<span></span></a><a href="#" class="analyticsButton" data-section="0">Statistics<span></span></a><a href="#" class="contentButton">Content<span></span></a><a href="#" class="settingsButton">Settings<span></span></a></nav><div class="wplogo"></div><a href="#" class="previewButton"><span class="previewButtonText"></span><div class="previewFade"></div></a></div>'); 
+ //$("#wpwrap").prepend('<div class="newGlobalMenu"><nav class="cleanNav"><a href="#" class="dashboardButton active">Dashboard<span></span></a><a href="#" class="analyticsButton" data-section="0">Statistics<span></span></a><a href="#" class="contentButton">Content<span></span></a><a href="#" class="settingsButton">Settings<span></span></a></nav><div class="wplogo"></div><a href="#" class="previewButton"><span class="previewButtonText"></span><div class="previewFade"></div></a></div>'); 
  } else {
-	 $("#wpwrap").prepend('<div class="newGlobalMenu"><nav class="cleanNav"><a href="#" class="dashboardButton active">Dashboard<span></span></a><a href="#" class="contentButton">Content<span></span></a><a href="#" class="settingsButton">Settings<span></span></a></nav><div class="wplogo"></div><a href="#" class="previewButton"><span class="previewButtonText"></span><div class="previewFade"></div></a></div>');
+	 //$("#wpwrap").prepend('<div class="newGlobalMenu"><nav class="cleanNav"><a href="#" class="dashboardButton active">Dashboard<span></span></a><a href="#" class="contentButton">Content<span></span></a><a href="#" class="settingsButton">Settings<span></span></a></nav><div class="wplogo"></div><a href="#" class="previewButton"><span class="previewButtonText"></span><div class="previewFade"></div></a></div>');
  }
 
-$("#wpcontent").prepend('<div id="splash"></div>');
+//$("#wpcontent").prepend('<div id="splash"></div>');
  
  
- $("#adminmenu").prepend('<li class="wp-not-current-submenu wp-menu-separator"><h3 class="dashboard">Dashboard</h3><p>Get a view of everything in wordpress from the dashboard.</p></li>');
+ //$("#adminmenu").prepend('<li class="wp-not-current-submenu wp-menu-separator"><h3 class="dashboard">Dashboard</h3><p>Get a view of everything in wordpress from the dashboard.</p></li>');
  
  var siteurl = $("#wp-admin-bar-site-name a").attr("href");
  var sitename = $("#wp-admin-bar-site-name a").first().text();
@@ -175,7 +222,7 @@ if(splashresult) {
  var foundposts = false;
  var foundmultisite = false;
  
- $( "li.wp-menu-separator" ).each(function( index ) {
+/* $( "li.wp-menu-separator" ).each(function( index ) {
  		$(this).attr("data-section",index);
  		$(this).nextAll("li").attr("data-section",index);
  		
@@ -211,15 +258,15 @@ if(splashresult) {
 			 $(".cleanNav .settingsButton").attr("href",settingsurl);
 		  	
 	  	} 
-  	});
+  	});*/
   	
   if(!foundposts) {
-	  $(".contentButton").hide();
+	  /*$(".contentButton").hide();*/
   }
   
   	
   	
-  	$( "#adminmenu a" ).each(function( index ) {
+  	/*$( "#adminmenu a" ).each(function( index ) {
  		var urlstart = $(this).attr("href");
  		var setindex = $(this).closest("li.menu-top").attr("data-section");
  		
@@ -229,10 +276,10 @@ if(splashresult) {
  		//console.log(setindex);
  		}
  		
-  	});
+  	});*/
   	
   	
-  	$( "#wpadminbar a" ).each(function( index ) {
+  	/*( "#wpadminbar a" ).each(function( index ) {
  		var urlstart = $(this).attr("href");
  		
  		if($(this).closest("li").attr("id") == "wp-admin-bar-network-admin-s") {
@@ -250,14 +297,14 @@ if(splashresult) {
  		$(this).attr("href",parm);
  		
  		
-  	});
+  	});*/
   	
   	 var siteurli = $("#wp-admin-bar-site-name a").attr("href") + "wp-admin/";
 var currentURL = document.URL;
   	
  if(currentURL == siteurli) {
 	
-		$( "#adminmenu li.menu-top, #adminmenu li.wp-menu-separator" ).each(function( index ) {
+		/*$( "#adminmenu li.menu-top, #adminmenu li.wp-menu-separator" ).each(function( index ) {
 	   		var t = $(this).attr("data-section");
 	   		
 		  	if(t == "0") {
@@ -267,7 +314,7 @@ var currentURL = document.URL;
 			  	$(this).hide();
 			  	
 		  	}
-		 });
+		 });*/
 	
 	
 	
@@ -280,7 +327,7 @@ var sectionresult = gup("section");
 
 
 if(sessionstorage) {
-	 $( "#adminmenu li.menu-top, #adminmenu li.wp-menu-separator" ).each(function( index ) {
+	 /*$( "#adminmenu li.menu-top, #adminmenu li.wp-menu-separator" ).each(function( index ) {
 	   		var t = $(this).attr("data-section");
 	   		
 		  	if(sessionstorage == t) {
@@ -291,12 +338,12 @@ if(sessionstorage) {
 			  	
 		  	}
 		 });
-		 console.log("used session storage");
+		 console.log("used session storage");*/
  } else {
 
 if(sectionresult) {
 	
-		$( "#adminmenu li.menu-top, #adminmenu li.wp-menu-separator" ).each(function( index ) {
+		/*$( "#adminmenu li.menu-top, #adminmenu li.wp-menu-separator" ).each(function( index ) {
 	   		var t = $(this).attr("data-section");
 	   		
 		  	if(sectionresult == t) {
@@ -307,10 +354,18 @@ if(sectionresult) {
 			  	
 		  	}
 		 });
-		 console.log("used url parm");
+		 console.log("used url parm");*/
   	
 } 
 }
+  	
+ 
+  
+  /*$(".wp-admin-bar-wp-logo a").click(function(e) {
+  	e.preventDefault();
+  	$(".auto-fold #adminmenuback, .auto-fold #adminmenuwrap").toggle();
+  	return false;
+  });*/
   	
   $("#adminmenu a").click(function() {
   	//return false;
@@ -318,7 +373,7 @@ if(sectionresult) {
  	//var url = $(this).attr("href") + "&foo=bar";
  	//$(this).attr("href",url);
  	
- 	$( "#adminmenu li.menu-top" ).each(function( index ) {
+ 	/*$( "#adminmenu li.menu-top" ).each(function( index ) {
    		var t = $(this).attr("data-section");
    		
 	  	if(l == t) {
@@ -328,7 +383,7 @@ if(sectionresult) {
 		  	$(this).hide();
 		  	
 	  	}
-  	});
+  	});*/
   	
   	
  });

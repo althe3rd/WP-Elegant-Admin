@@ -38,8 +38,8 @@ module.exports = function(grunt) {
       separator: ' ',
     },
     dist: {
-      src: ['main.css', 'mobile.css'],
-      dest: 'master.css',
+      src: ['build.css', 'font-awesome.css'],
+      dest: 'master.scss',
     },
   },
   watch: {
