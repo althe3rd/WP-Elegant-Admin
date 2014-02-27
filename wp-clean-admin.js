@@ -49,7 +49,7 @@ $('#wpbody').animate({
 	  }, 300, function() {
 	    // Animation complete.
 	  });
-
+	   
 	if(currentURL == siteurl) {
 	
 	//sessionStorage.removeItem("section");
