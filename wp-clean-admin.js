@@ -9,6 +9,16 @@ var isHome = false;
 		isHome = true;
 
 	}
+	
+$(".subsubsub").append("<li class='filter' id='filter-by-options'><a href='#'> Filter</a></li>");
+
+$("#filter-by-options").click(function(e) {
+  	e.preventDefault();
+  	
+  	$(".tablenav.top").toggle();
+  	//$(".auto-fold #adminmenuback, .auto-fold #adminmenuwrap").toggleClass("menuHide");
+  	
+  });
 
   
  $("#wp-admin-bar-root-default").prepend("<li id='wp-admin-bar-wp-menu'><a href='#' class='ab-item sideNavMenuToggle'><span class='ab-icon'></span> Menu</a></li>");
@@ -50,6 +60,7 @@ var isHome = false;
   	e.preventDefault();
   	
   	$(".auto-fold #adminmenuback, .auto-fold #adminmenuwrap").toggleClass("menuShown");
+  	$("#wpcontent, #wpfooter").toggleClass("menuopen");
   	//$(".auto-fold #adminmenuback, .auto-fold #adminmenuwrap").toggleClass("menuHide");
   	
   });
