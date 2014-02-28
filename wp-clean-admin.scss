@@ -14,7 +14,7 @@ body {
 .auto-fold #adminmenuback, .auto-fold #adminmenuwrap {
 margin-left: 0px;
 transform: translate3d(0px, 0px, 0px) rotateY(130deg);
-  transform-origin: 0 0;
+  transform-origin: 0 50%;
   position: fixed;
 /*box-shadow: 0px 1px 5px rgba(0,0,0,0.4);*/
 transition: 0.4s;
@@ -74,7 +74,7 @@ ul#adminmenu a.wp-has-current-submenu:after, ul#adminmenu>li.current>a.current:a
 
 .auto-fold #adminmenuwrap.menuShown {
 transform: translate3d(0px, 0px, 0px) rotateY(0deg);
-   transform-origin: 0 0;
+   transform-origin: 0 50%;
 	margin-left: 0px;
 	
 }
@@ -243,7 +243,7 @@ transform: translate3d(0px, 0px, 0px) rotateY(0deg);
  to {
  	opacity:1;
 	transform: translate3d(0px, 0px, 0px) rotateX(0deg) perspective(1200px);
-  transform-origin: 0 0;
+  transform-origin: 50% 0;
  
 	
  }
