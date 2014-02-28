@@ -2,6 +2,8 @@ jQuery(document).ready(function($) {
 
 var isHome = false;
 
+	$("body").addClass(BrowserDetect.browser);
+
   	 var siteurli = $("#wp-admin-bar-site-name a").attr("href") + "wp-admin/";
   	 var currentURL = document.URL;
   	
@@ -19,6 +21,8 @@ $("#filter-by-options").click(function(e) {
   	//$(".auto-fold #adminmenuback, .auto-fold #adminmenuwrap").toggleClass("menuHide");
   	
   });
+  
+  
 
   
  $("#wp-admin-bar-root-default").prepend("<li id='wp-admin-bar-wp-menu'><a href='#' class='ab-item sideNavMenuToggle'><span class='ab-icon'></span> Menu</a></li>");
@@ -55,6 +59,7 @@ $("#filter-by-options").click(function(e) {
 	$(".postbox").css("opacity","1");
  },5000)
  
+ var time1;
  
  $(".sideNavMenuToggle").click(function(e) {
   	e.preventDefault();
@@ -62,6 +67,16 @@ $("#filter-by-options").click(function(e) {
   	$(".auto-fold #adminmenuback, .auto-fold #adminmenuwrap").toggleClass("menuShown");
   	$("#wpcontent, #wpfooter").toggleClass("menuopen");
   	//$(".auto-fold #adminmenuback, .auto-fold #adminmenuwrap").toggleClass("menuHide");
+  	
+  	if($(".auto-fold #adminmenuwrap").hasClass("menuShown")) {
+  		clearTimeout(time1);
+	  	time1 = setTimeout(function() {
+		  	$(".auto-fold #adminmenuwrap.menuShown").attr("style","position:relative");
+	  	},500);
+  	} else {
+	  	clearTimeout(time1);
+	  	$(".auto-fold #adminmenuwrap").attr("style","");
+  	}
   	
   });
 

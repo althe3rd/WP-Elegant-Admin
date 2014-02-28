@@ -5,7 +5,7 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     uglify: {
       build: {
-        src: ['wp-clean-admin.js'],
+        src: ['browserdetect.js','wp-clean-admin.js'],
         dest: 'js/wp-clean-admin-master.min.js'
       }
     },

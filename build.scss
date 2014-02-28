@@ -1,8 +1,33 @@
+body {
+  -webkit-perspective: none;
+  -ms-perspective: none;
+  perspective: none;
+}
+
+#wpwrap {
+  -webkit-perspective: 1400px;
+  -ms-perspective: 1400px;
+  perspective: 1400px;
+}
+
 .auto-fold #adminmenuback,
 .auto-fold #adminmenuwrap {
-  margin-left: -200px;
+  margin-left: 0px;
+  -webkit-transform: translate3d(0px, 0px, 0px) rotateY(130deg);
+  -ms-transform: translate3d(0px, 0px, 0px) rotateY(130deg);
+  transform: translate3d(0px, 0px, 0px) rotateY(130deg);
+  -webkit-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  transform-origin: 0 0;
+  position: fixed;
   -webkit-transition: 0.4s;
   transition: 0.4s;
+  z-index: 5;
+}
+
+.Chrome #wpadminbar,
+.Safari #wpadminbar {
+  margin-top: -32px;
 }
 
 #wpcontent,
@@ -13,7 +38,11 @@
 }
 
 #wpadminbar a.sideNavMenuToggle {
-  border-right: 1px solid rgba(255,255,255,0.3);
+  border-right: 1px solid rgba(255,255,255,0.25);
+}
+
+#wpadminbar {
+  border-bottom: 1px solid rgba(255,255,255,0.25);
 }
 
 #wpcontent.menuopen,
@@ -51,6 +80,12 @@ ul#adminmenu>li.current>a.current:after {
 }
 
 .auto-fold #adminmenuwrap.menuShown {
+  -webkit-transform: translate3d(0px, 0px, 0px) rotateY(0deg);
+  -ms-transform: translate3d(0px, 0px, 0px) rotateY(0deg);
+  transform: translate3d(0px, 0px, 0px) rotateY(0deg);
+  -webkit-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  transform-origin: 0 0;
   margin-left: 0px;
 }
 
@@ -271,13 +306,34 @@ p.popular-tags,
 
 @-webkit-keyframes flipin {
   from {
-    -webkit-transform: rotateX(90deg);
+    -webkit-transform: rotateX(110deg);
+    transform: rotateX(110deg);
   }
 
   to {
     opacity: 1;
-    -webkit-transform: translate3d(0px, 0px, 0px) rotateX(0deg) perspective(900px);
-    -webkit-transform-origin-y: -1px;
+    -webkit-transform: translate3d(0px, 0px, 0px) rotateX(0deg) perspective(1200px);
+    transform: translate3d(0px, 0px, 0px) rotateX(0deg) perspective(1200px);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+  }
+}
+
+@keyframes flipin {
+  from {
+    -webkit-transform: rotateX(110deg);
+    -ms-transform: rotateX(110deg);
+    transform: rotateX(110deg);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0px, 0px, 0px) rotateX(0deg) perspective(1200px);
+    -ms-transform: translate3d(0px, 0px, 0px) rotateX(0deg) perspective(1200px);
+    transform: translate3d(0px, 0px, 0px) rotateX(0deg) perspective(1200px);
+    -webkit-transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    transform-origin: 0 0;
   }
 }
 
